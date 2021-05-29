@@ -1,0 +1,540 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: roboto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #212121;
+  width: 100%;
+  min-height: 100vh;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:disabled:hover {
+  cursor: initial;
+}
+
+.no-list-bullet {
+  list-style-type: none;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100px;
+  padding: 1rem;
+  color: white;
+  z-index: 10;
+  background-color: #212121;
+  text-decoration: none;
+  border: 1px solid white;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.nav {
+  background-color: #212121;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.nav__icon {
+  height: 50px;
+  width: 50px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 0.3rem;
+}
+
+.nav__content {
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+}
+
+.nav__logo {
+  flex: 1;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__links {
+  display: none;
+  flex: 1;
+  align-items: center;
+}
+
+.nav__links li {
+  list-style-type: none;
+  flex: 1;
+}
+
+.nav__burger-btn {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.nav__burger-btn i {
+  font-size: 2rem;
+}
+
+.nav__drawer {
+  position: absolute;
+  width: 100%;
+  transition: 1s;
+  transform: translateX(-100%);
+  animation: closeNav__drawer 0.5s;
+  box-shadow: 0px 3px 5px 2px rgba(0,0,0,0.4);;
+}
+
+.nav__drawer:focus-within {
+  transform: translateX(0%);
+}
+
+.nav__drawer.open {
+  transform: translateX(0%);
+  animation: openNav__drawer 0.5s
+}
+
+.searchbar-container {
+  display: flex;
+  padding: 0 2rem;
+  justify-content: center;
+}
+
+search-bar {
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #424242;
+  display: flex;
+  flex: 1;
+  max-width: 400px;
+}
+
+.searchbar__input {
+  padding: 0.4rem;
+  flex: 1;
+  font-size: 1rem;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+}
+
+.searchbar-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  color: #fff;
+}
+
+@keyframes closeNav__drawer { 
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes openNav__drawer { 
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.nav__drawer__links {
+  background-color: #212121;
+}
+
+.nav__drawer__links a{
+  padding: 1rem;
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.jumbotron {
+  width: 100%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.jumbotron__content {
+  font-size: 2rem;
+  text-align: center;
+  background-color: #00000055;
+  padding: 0.2rem 0.5rem;
+}
+
+.restaurant-list-container {
+  color: #fff;
+  padding: 2rem 0.3rem 1rem 0.3rem;
+}
+
+.restaurant-list__h1 {
+  text-align: center;
+  padding: 0 1rem 1rem 0;
+  font-size: 2.5rem;
+}
+
+.restaurants-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.restaurant-card {
+  border-radius: 1rem;
+  background-color: #424242;
+  margin: 0.2rem;
+  overflow: hidden;
+  max-width: 400px;
+}
+
+.restaurant-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.restaurant-card__image-container {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.restaurant-card__image {
+  width: 100%;
+  min-height: 300px;
+  position: relative;
+}
+
+.restaurant-card__city {
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  background-color: #00000055;
+  font-weight: bold;
+  position: absolute;
+}
+
+.restaurant-card__information {
+  padding: 1rem;
+}
+
+.restaurant-card__name {
+  padding-bottom: 0.5rem;
+}
+
+.justify-text {
+  text-align: justify;
+}
+
+.restaurant-card__rating {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.restaurant-card__rating__number {
+  margin-right: 0.2rem;
+  display: flex;
+  font-size: 1.1rem;
+}
+
+.restaurant-card__rating__star {
+  color: gold;
+}
+
+.footer {
+  text-align: center;
+  color: #fff;
+  padding: 1rem;
+  background-color: #616161;
+}
+
+.read-more-btn {
+  text-decoration: underline;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.search-information, .loading-information, .empty-information {
+  font-size: 2rem;
+  padding-bottom: 2rem;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.information-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  color: #fff;
+}
+
+.restaurant-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-page__section {
+  padding-bottom: 1rem;
+}
+
+.restaurant-page__h1{
+  padding-bottom: 1rem;
+}
+
+.restaurant-page__h2{
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.restaurant-page__body {
+  padding: 1rem;
+  color: #fff;
+}
+
+.restaurant-page__image {
+  width: 100%;
+}
+
+.restaurant-page__info {
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.restaurant-page__info__icon {
+  padding-right: 1rem;
+}
+
+.restaurant-page__section {
+  padding-bottom: 1rem;
+}
+
+.restaurant-page__reviews {
+  flex: 1;
+  padding: 1rem;
+  color: #fff;
+  background-color: #424242;
+}
+
+.chip {
+  padding: 0.4rem;
+  border-radius: 1rem;
+  background-color: #424242;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.chip-container {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+
+.review-card {
+  padding: 1rem;
+  margin: 0.2rem 0;
+  border-radius: 1rem;
+  background-color: #212121; 
+}
+
+.review-card__head {
+  padding-bottom: 0.5rem;
+}
+
+.review-card__date {
+  font-size: 0.8rem;
+  color: #9e9e9e;
+}
+
+.review-form__container {
+  padding: 0.5rem;
+}
+
+.review-form__name-input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: none;
+  font-size: 1rem;
+}
+
+.review-form__content-input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  min-height: 100px;
+  border: none;
+  resize:vertical;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.review-form__submit-container {
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.review-form__submit {
+  color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #212121;
+  font-weight: bold;
+}
+
+.review-form__error-msg {
+  color: red;
+  padding: 0 1rem;
+}
+
+.favorite-btn {
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background-color: #424242;
+  font-weight: bold;
+}
+
+.restaurant-page__favorite-btn-container {
+  display: flex;
+  padding-bottom: 1rem;
+}
+
+.favorite-btn__desc {
+  padding-right: 0.3rem;
+}
+
+.favorite-btn__icon {
+  background-color: transparent;
+  color: gold;
+} 
+
+.page-content {
+  min-height: 80vh;
+}
+
+.no-restaurants {
+  margin: 10rem auto;
+  font-size: 2rem;
+}
+
+.favorite-page__h1 {
+  margin-bottom: 4rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .nav__links {
+    display: flex;
+  }
+
+  .nav__links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav__burger-btn {
+    display: none;
+  }
+
+  .nav__drawer {
+    display: none;
+  }
+
+  .restaurant-card{
+    margin: 1rem;
+  }
+
+  .restaurant-page__section-container{
+    display: flex;
+  }
+
+  .restaurant-page__section-container .restaurant-page__section {
+    flex: 1;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .restaurant-page__non-reviews {
+    display: flex;
+  }
+
+  .restaurant-page__image-container {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    flex: 1;
+  }
+
+  .restaurant-page__body {
+    flex: 1;
+  }
+
+  .restaurant-page__reviews {
+    padding: 1rem 30%;
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .nav__logo {
+    padding-left: 4rem;
+    justify-content: start;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+}
