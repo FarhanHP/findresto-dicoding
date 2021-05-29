@@ -19,17 +19,19 @@ class FavoriteButton extends StatefulElement {
 
   render() {
     const { loading } = this.state;
+    const { isFavorite } = this;
 
     this.innerHTML = `
       <button
         id="${this.buttonId}"
         class="favorite-btn"
+        aria-label="${isFavorite ? 'remove favorite' : 'add favorite'}"
         ${loading ? 'disabled' : ''}
       >
         <span
           class="favorite-btn__desc"
         >
-          ${this.isFavorite ? `
+          ${isFavorite ? `
             ${loading ? 'REMOVING FAVORITE...' : 'REMOVE FAVORITE'}
           ` : `
             ${loading ? 'ADDING FAVORITE...' : 'ADD FAVORITE'}
@@ -39,7 +41,7 @@ class FavoriteButton extends StatefulElement {
         <i
           class="material-icons favorite-btn__icon"
         >
-          ${this.isFavorite ? 'star' : 'star_outline'}
+          ${isFavorite ? 'star' : 'star_outline'}
         </i>
       </button>
     `;

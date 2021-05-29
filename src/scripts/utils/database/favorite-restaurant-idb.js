@@ -12,6 +12,10 @@ const dbPromise = openDB(NAME, VERSION, {
 
 const FavoriteRestaurantIdb = {
   async getRestaurant(id) {
+    if (id === undefined) {
+      return undefined;
+    }
+
     return (await dbPromise).get(FAVORITE_RESTAURANTS, id);
   },
 
@@ -20,6 +24,10 @@ const FavoriteRestaurantIdb = {
   },
 
   async putRestaurant(id, name, description, pictureId, city, rating) {
+    if (id === undefined) {
+      return undefined;
+    }
+
     return (await dbPromise).put(FAVORITE_RESTAURANTS, {
       id, name, description, pictureId, city, rating,
     });

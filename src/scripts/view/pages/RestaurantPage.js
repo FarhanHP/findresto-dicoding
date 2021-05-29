@@ -1,7 +1,7 @@
 import UrlParser from '../../routes/url-parser';
 import FavoriteRestaurantIdb from '../../utils/database/favorite-restaurant-idb';
 import RestaurantsRequest from '../../utils/request/restaurants-request';
-import WINDOW_SIZES from '../../const/window_sizes';
+import WINDOW_SIZES from '../../const/window-sizes';
 import Page from '../abstracts/Page';
 
 class RestaurantPage extends Page {

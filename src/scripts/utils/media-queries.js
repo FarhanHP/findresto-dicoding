@@ -1,4 +1,4 @@
-import WINDOW_SIZES from '../const/window_sizes';
+import WINDOW_SIZES from '../const/window-sizes';
 
 const {
   EXTRA_SMALL, SMALL, MEDIUM, LARGE, EXTRA_LARGE,
