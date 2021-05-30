@@ -1,6 +1,6 @@
 const CONFIG = {
   CACHE: {
-    NAME: new Date().toISOString(), // findresto-v-1.3
+    NAME: 'findresto-v-1.1.1', // new Date().toISOString()
   },
   RESTAURANTS_API: {
     BASE_URL: 'https://restaurant-api.dicoding.dev',
