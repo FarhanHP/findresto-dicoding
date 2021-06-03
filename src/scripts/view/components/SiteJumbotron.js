@@ -1,22 +1,43 @@
 import StatelessElement from '../abstracts/StatelessElement';
 
 class SiteJumbotron extends StatelessElement {
-  connectedCallback() {
-    this.url = this.getAttribute('url') || null;
-    this.caption = this.getAttribute('caption') || null;
-    this.imageTitle = this.getAttribute('imageTitle') || null;
-
+  // urls should be sorted from smaller images
+  init({
+    smallImage, mediumImage, largeImage, caption, imageTitle,
+  }) {
+    this.smallImage = smallImage;
+    this.mediumImage = mediumImage;
+    this.largeImage = largeImage;
+    this.imageTitle = imageTitle;
+    this.caption = caption;
     this.render();
   }
 
   render() {
     this.innerHTML = `
+      <style
+        scoped
+      >
+        .jumbotron {
+          background-image: url(${this.smallImage})
+        }
+
+        @media only screen and (min-width: 600px) {
+          .jumbotron {
+            background-image: url(${this.mediumImage})
+          }
+        }
+
+        @media only screen and (min-width: 960px) {
+          .jumbotron {
+            background-image: url(${this.largeImage})
+          }
+        }
+
+      </style>
       <div
         class="jumbotron"
-        style="
-          background-image: url(${this.url});
-        "
-        ${this.title !== null ? `title="${this.title}"` : ''}
+        ${this.title !== undefined ? `title="${this.title}"` : ''}
       >
         ${this.caption ? `
           <p

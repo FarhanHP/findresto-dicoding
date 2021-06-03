@@ -17,6 +17,8 @@ Scenario('Adding and removing a favorite restaurant', async ({ I }) => {
   const movieTitle1 = await I.grabTextFrom(locate('.restaurant-card__name').first());
   I.seeElement('.restaurant-card__image-container');
   I.click(locate('.restaurant-card__image-container').first());
+  I.scrollPageToTop();
+  I.wait(1);
   I.seeElement('.favorite-btn');
   I.click('.favorite-btn');
 

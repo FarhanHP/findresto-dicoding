@@ -3,9 +3,6 @@ import Page from '../abstracts/Page';
 import jumbotronImageLarge from '../../../public/images/heros/hero-image_1-large.jpg';
 import jumbotronImageMedium from '../../../public/images/heros/hero-image_1-medium.jpg';
 import jumbotronImageSmall from '../../../public/images/heros/hero-image_1-small.jpg';
-import mediaQueries from '../../utils/media-queries';
-
-const { isLargeAndLarger, isMediumAndLarger } = mediaQueries;
 
 class HomePage extends Page {
   constructor(parentElement) {
@@ -19,25 +16,14 @@ class HomePage extends Page {
     );
 
     this.searchHandler = this.searchHandler.bind(this);
+    this.initSiteJumbotron = this.initSiteJumbotron.bind(this);
   }
 
   render() {
     const { search, restaurants } = this.state;
-    let jumbotronImage;
-
-    if (isLargeAndLarger()) {
-      jumbotronImage = jumbotronImageLarge;
-    } else if (isMediumAndLarger()) {
-      jumbotronImage = jumbotronImageMedium;
-    } else {
-      jumbotronImage = jumbotronImageSmall;
-    }
 
     this.parentElement.innerHTML = `
-      <site-jumbotron
-        url="${jumbotronImage}"
-        caption="#1 Restaurants Finding Website"
-      >
+      <site-jumbotron>
       </site-jumbotron>
 
       <article
@@ -80,6 +66,8 @@ class HomePage extends Page {
 
   afterRender() {
     this.contentElement = document.querySelector('#content');
+    this.siteJumbotron = document.querySelector('site-jumbotron');
+    this.initSiteJumbotron();
     this.initSearchBar();
 
     if (this.state.dataLoading) {
@@ -88,6 +76,16 @@ class HomePage extends Page {
     } else {
       this.renderRestaurantsList();
     }
+  }
+
+  initSiteJumbotron() {
+    const caption = '#1 Restaurants Finding Site';
+    this.siteJumbotron.init({
+      smallImage: jumbotronImageSmall,
+      mediumImage: jumbotronImageMedium,
+      largeImage: jumbotronImageLarge,
+      caption,
+    });
   }
 
   initSearchBar() {
